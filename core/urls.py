@@ -23,9 +23,9 @@ from drf_yasg import openapi
 
 schema_view = get_schema_view(
     openapi.Info(
-        title="Pronove TAI API",
+        title="Skill Up API",
         default_version='v2.0',
-        description='Pronove TAI API endpoints',
+        description='Skill Up API endpoints',
         contact=openapi.Contact(email='vanjo.mampusti0324@gmail.com'),
     ),
     public=True,
