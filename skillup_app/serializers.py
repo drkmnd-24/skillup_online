@@ -10,6 +10,9 @@ class RegistrationSerializer(serializers.Serializer):
     password = serializers.CharField(write_only=True)
     position = serializers.ChoiceField(choices=Profile.POSITIONS)
 
+    department = serializers.ChoiceField(choices=Profile.DEPARTMENTS, required=False, allow_null=True)
+    lab_part = serializers.ChoiceField(choices=Profile.LAB_PARTS, required=False, allow_null=True)
+
     def validate_username(self, value):
         if User.objects.filter(username=value).exists():
             raise serializers.ValidationError("Username already exists.")
@@ -21,7 +24,12 @@ class RegistrationSerializer(serializers.Serializer):
             username=validated_data["username"],
             password=validated_data["password"],
         )
-        Profile.objects.create(user=user, position=validated_data["position"])
+        Profile.objects.create(
+            user=user,
+            position=validated_data["position"],
+            department=validated_data.get('department') or None,
+            lab_part=validated_data.get('lab_part') or None,
+        )
         return user
 
 
