@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg class="logo-lg" xmlns="http://www.w3.org/2000/svg" width="3200" height="650" viewBox="0 0 3200 650">
+  <style>
+    .main { font-family: Arial, Helvetica, sans-serif; font-weight: 700; font-size: 400px; }
+    .tagline { font-family: Arial, Helvetica, sans-serif; font-size: 160px; fill: #7f7f7f; }
+    .logo-lg { width: 220px; }
+  </style>
+
+  <!-- Wordmark -->
+  <text x="60" y="430" class="main" fill="black">PRONOVE</text>
+  <text x="2150" y="430" class="main" fill="#E60000">TAI</text>
+
+  <!-- Tag‑line -->
+  <text x="60" y="610" class="tagline">International Property Consultants</text>
+</svg>
