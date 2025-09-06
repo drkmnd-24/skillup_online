@@ -35,10 +35,13 @@ class RegistrationSerializer(serializers.Serializer):
 
 class UserSerializer(serializers.ModelSerializer):
     position = serializers.CharField(source="profile.get_position_display", read_only=True)
+    department = serializers.CharField(source='profile.get_department_display', read_only=True)
+    lab_part = serializers.CharField(source='profile.get_lab_part_display', read_only=True)
 
     class Meta:
         model = User
-        fields = ["id", "username", "first_name", "last_name", "email", "position"]
+        fields = ["id", "username", "first_name", "last_name", "email",
+                  "position", 'department', 'lab_part']
 
 
 class UploadedMarkdownFileSerializer(serializers.ModelSerializer):
