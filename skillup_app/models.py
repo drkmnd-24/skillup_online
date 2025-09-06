@@ -18,8 +18,36 @@ class Profile(models.Model):
         (POSITION_OTHER, "Other"),
     ]
 
+    DEPT_COT = 'COT'
+    DEPT_CST = 'CST'
+    DEPT_CIT = 'CIT'
+    DEPT_MST = 'MST'
+    DEPARTMENTS = [
+        (DEPT_COT, 'COT'),
+        (DEPT_CST, 'CST'),
+        (DEPT_CIT, 'CIT'),
+        (DEPT_MST, 'MST'),
+    ]
+
+    # NEW: Lab Part choices
+    LAB_C01 = 'C01'
+    LAB_C02 = 'C02'
+    LAB_C03 = 'C03'
+    LAB_C04 = 'C04'
+    LAB_CML = 'CML'
+    LAB_PARTS = [
+        (LAB_C01, 'C01'),
+        (LAB_C02, 'C02'),
+        (LAB_C03, 'C03'),
+        (LAB_C04, 'C04'),
+        (LAB_CML, 'CML'),
+    ]
+
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="profile")
     position = models.CharField(max_length=32, choices=POSITIONS)
+
+    department = models.CharField(max_length=8, choices=DEPARTMENTS, null=True, blank=True)
+    lab_part = models.CharField(max_length=8, choices=LAB_PARTS, null=True, blank=True)
 
     def __str__(self):
         return f"{self.user.username} · {self.get_position_display()}"
