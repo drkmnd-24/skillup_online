@@ -7,7 +7,8 @@ from .models import Profile, UploadedMarkdownFile, ModifiedMarkdownFile, TaskTem
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'position')
+    list_display = ('user', 'position', 'department', 'lab_part')
+    list_filter = ('position', 'department', 'lab_part')
     search_fields = ('user__username', 'user__first_name', 'user__last_name')
 
 
